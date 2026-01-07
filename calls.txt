@@ -1,0 +1,43 @@
+0: create realm
+1: create client 4 kafka (auth + auth + dbac + sar no standard)
+2: set client token lifespan
+3: create auth scopes
+loop
+    4: create user
+    5: create resource with scopes
+    6: create user policy (client -> user policy)
+    6: create resource permission 
+
+
+
+
+
+
+Request URL
+http://localhost:8080/admin/realms/alida/clients/508a588c-f475-4719-8b03-cea3e7beddc2/authz/resource-server/scope
+Request Method
+POST
+
+{"name":"Create","displayName":"","iconUri":""}
+
+
+Request URL
+http://localhost:8080/admin/realms/alida/clients/508a588c-f475-4719-8b03-cea3e7beddc2/authz/resource-server/resource
+Request Method
+POST
+
+{"name":"Topic:a_*","displayName":"Topics that start with a_","type":"Topic","icon_uri":"","ownerManagedAccess":false,"attributes":{},"scopes":[{"name":"Alter"},{"name":"AlterConfigs"},{"name":"Create"},{"name":"Delete"},{"name":"Describe"},{"name":"DescribeConfigs"},{"name":"Read"},{"name":"Write"}]}
+
+Request URL
+http://localhost:8080/admin/realms/alida/clients/508a588c-f475-4719-8b03-cea3e7beddc2/authz/resource-server/policy/user
+Request Method
+POST
+
+{"name":"User1 manages topics a_*","description":"","users":["0c804add-0161-4cfc-9869-f3d73061d71d"],"logic":"POSITIVE"}
+
+Request URL
+http://localhost:8080/admin/realms/alida/clients/508a588c-f475-4719-8b03-cea3e7beddc2/authz/resource-server/permission/resource
+Request Method
+POST
+
+{"resources":["00142e08-6064-4183-8607-0bc4207be811"],"policies":["bd28a17e-71b5-41d3-8b4c-eec1e799fb24"],"name":"User1 allowed to manage topics a_*","description":"","decisionStrategy":"UNANIMOUS"}
