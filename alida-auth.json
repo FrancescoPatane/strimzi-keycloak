@@ -1,0 +1,167 @@
+{
+    "allowRemoteResourceManagement": true,
+    "policyEnforcementMode": "ENFORCING",
+    "resources": [
+      {
+        "name": "Topic:a_*",
+        "type": "Topic",
+        "ownerManagedAccess": false,
+        "displayName": "Topics that start with a_",
+        "attributes": {},
+        "uris": [],
+        "scopes": [
+          {
+            "name": "Delete"
+          },
+          {
+            "name": "Create"
+          },
+          {
+            "name": "Write"
+          },
+          {
+            "name": "Describe"
+          },
+          {
+            "name": "Alter"
+          },
+          {
+            "name": "Read"
+          },
+          {
+            "name": "DescribeConfigs"
+          },
+          {
+            "name": "AlterConfigs"
+          }
+        ],
+        "icon_uri": ""
+      },
+      {
+        "name": "Topic:b_*",
+        "type": "Topic",
+        "ownerManagedAccess": false,
+        "displayName": "Topic that start with b_",
+        "attributes": {},
+        "uris": [],
+        "scopes": [
+          {
+            "name": "Delete"
+          },
+          {
+            "name": "Create"
+          },
+          {
+            "name": "Write"
+          },
+          {
+            "name": "Describe"
+          },
+          {
+            "name": "Alter"
+          },
+          {
+            "name": "Read"
+          },
+          {
+            "name": "DescribeConfigs"
+          },
+          {
+            "name": "AlterConfigs"
+          }
+        ],
+        "icon_uri": ""
+      }
+    ],
+    "policies": [
+      {
+        "name": "user-1-policy",
+        "description": "",
+        "type": "user",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "config": {
+          "users": "[\"user1\"]"
+        }
+      },
+      {
+        "name": "user-2-policy",
+        "description": "",
+        "type": "user",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "config": {
+          "users": "[\"user2\"]"
+        }
+      },
+      {
+        "name": "user1-produce-a-topics",
+        "description": "user1-produce-a-topics",
+        "type": "scope",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "config": {
+          "resources": "[\"Topic:a_*\"]",
+          "scopes": "[\"Create\",\"Write\",\"Describe\"]",
+          "applyPolicies": "[\"user-1-policy\"]"
+        }
+      },
+      {
+        "name": "user1-consume-a-topics",
+        "description": "user1-consume-a-topics",
+        "type": "scope",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "config": {
+          "resources": "[\"Topic:a_*\"]",
+          "scopes": "[\"Read\",\"Describe\"]",
+          "applyPolicies": "[\"user-1-policy\"]"
+        }
+      },
+      {
+        "name": "user2-manage-topic-b",
+        "description": "",
+        "type": "scope",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "config": {
+          "resources": "[\"Topic:b_*\"]",
+          "scopes": "[\"Delete\",\"Create\",\"Write\",\"Read\",\"Describe\"]",
+          "applyPolicies": "[\"user-2-policy\"]"
+        }
+      }
+    ],
+    "scopes": [
+      {
+        "name": "Delete"
+      },
+      {
+        "name": "Alter"
+      },
+      {
+        "name": "Describe"
+      },
+      {
+        "name": "ClusterAction"
+      },
+      {
+        "name": "DescribeConfigs"
+      },
+      {
+        "name": "AlterConfigs"
+      },
+      {
+        "name": "IdempotentWrite"
+      },
+      {
+        "name": "Create"
+      },
+      {
+        "name": "Read"
+      },
+      {
+        "name": "Write"
+      }
+    ],
+    "decisionStrategy": "AFFIRMATIVE"
+  }

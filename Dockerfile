@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir requests confluent-kafka kafka-python
 
 # Copy your script
 COPY producer.py /scripts/producer.py
-
+COPY producer2.py /scripts/producer2.py
 COPY consumer.py /scripts/consumer.py
 
 WORKDIR /scripts

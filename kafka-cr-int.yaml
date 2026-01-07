@@ -43,7 +43,7 @@ spec:
             sasl.enabled.mechanisms: OAUTHBEARER
             oauthbearer.sasl.server.callback.handler.class: io.strimzi.kafka.oauth.server.JaasServerOauthValidatorCallbackHandler
             oauthbearer.sasl.jaas.config: |
-              org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required unsecuredLoginStringClaim_sub="sub" oauth.valid.issuer.uri="http://10.111.165.225:8080/realms/kafka-authz" oauth.jwks.endpoint.uri="http://10.111.165.225:8080/realms/kafka-authz/protocol/openid-connect/certs" oauth.username.claim="preferred_username";
+              org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required unsecuredLoginStringClaim_sub="sub" oauth.valid.issuer.uri="http://10.111.165.225:8080/realms/alida" oauth.jwks.endpoint.uri="http://10.111.165.225:8080/realms/alida/protocol/openid-connect/certs" oauth.username.claim="preferred_username";
             connections.max.reauth.ms: 3600
     authorization:
         type: custom
@@ -55,7 +55,7 @@ spec:
       principal.builder.class: io.strimzi.kafka.oauth.server.OAuthKafkaPrincipalBuilder
       # Needed for Keycloak authorization
       strimzi.authorization.client.id: kafka
-      strimzi.authorization.token.endpoint.uri: http://10.111.165.225:8080/realms/kafka-authz/protocol/openid-connect/token
+      strimzi.authorization.token.endpoint.uri: http://10.111.165.225:8080/realms/alida/protocol/openid-connect/token
       strimzi.authorization.ssl.endpoint.identification.algorithm: ""
       strimzi.authorization.delegate.to.kafka.acl: "false"
       # Other Kafka configuration options
