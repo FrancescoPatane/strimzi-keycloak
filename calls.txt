@@ -41,3 +41,10 @@ Request Method
 POST
 
 {"resources":["00142e08-6064-4183-8607-0bc4207be811"],"policies":["bd28a17e-71b5-41d3-8b4c-eec1e799fb24"],"name":"User1 allowed to manage topics a_*","description":"","decisionStrategy":"UNANIMOUS"}
+
+Request URL
+http://localhost:8080/admin/realms/alida/clients/5fadaf9a-1af3-4967-a517-60be4215c08d/authz/resource-server/permission/scope
+Request Method
+POST
+
+{"resources":["6baba17d-0003-4640-afca-6cc1c2547ec2"],"policies":["79c817b1-d29a-40d7-8b74-307909fb995d"],"scopes":["923a6358-83b6-4459-b660-ddcb35f2d436","41ed25ef-fd73-43e4-94a5-ee4631a39bdc","e4417433-7de0-4633-878e-e5493b7db1bb","1afba364-2f33-40e3-82f0-05c9b8dd0e3c","d51c48e2-2728-47c3-a770-bc7933f0bf53"],"name":"user-1-manage-b","description":"","decisionStrategy":"UNANIMOUS"}
